@@ -3,7 +3,7 @@ from rest_framework import serializers
 from .models import Movie
 
 
-class MovieSerializer(serializers.ModelSerializer):
+class MovieSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
     title = serializers.CharField(required=True, max_length=250)
     description = serializers.CharField(required=True)
