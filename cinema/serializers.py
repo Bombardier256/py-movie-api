@@ -3,11 +3,11 @@ from rest_framework import serializers
 from .models import Movie
 
 
-class MovieSerializer(serializers.Serializer):
+class MovieSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
     title = serializers.CharField(required=True, max_length=250)
     description = serializers.CharField(required=True)
-    duration = serializers.CharField(required=True)
+    duration = serializers.IntegerField(required=True)
 
     def create(self, validated_data):
         return Movie.objects.create(**validated_data)
